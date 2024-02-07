@@ -1,0 +1,107 @@
+.hero {
+    width: 100%;
+    padding: 120px 0 170px;
+
+    background-image: url("../../assets/images/hero__bg\ \(3\).jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (max-width: 1000px) {
+        padding: 100px 0 130px;
+    }
+
+    @media (max-width: 500px) {
+        padding: 60px 0;
+    }
+}
+
+.hero__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero__left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (max-width: 1400px) {
+        gap: 5px;
+    }
+
+    @media (max-width: 500px) {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.hero__left.left {
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+.hero__left p {
+    font-family: "Yesteryear", cursive;
+}
+
+.hero__left h1 {
+    font-size: 48px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+
+    @media (max-width: 1700px) {
+        font-size: 38px;
+    }
+
+    @media (max-width: 1400px) {
+        font-size: 28px;
+    }
+
+    @media (max-width: 500px) {
+        font-size: 20px;
+    }
+}
+
+.hero__left a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    padding: 12px 25px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+
+    font-family: "Roboto", sans-serif;
+    background: rgba(255, 0, 0, 0.766);
+    border: 2px solid red;
+    outline: none;
+    cursor: pointer;
+
+    transition: all .5s;
+
+    @media (max-width: 1700px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 1400px) {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    @media (max-width: 500px) {
+        padding: 12px 30px;
+    }
+}
+
+.hero__left a:hover {
+    background: rgba(240, 128, 128, 0.655);
+    color: black;
+    border: 2px solid red;
+}

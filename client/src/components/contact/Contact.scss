@@ -1,0 +1,143 @@
+.contact {
+    padding: 90px 0;
+    width: 100%;
+    background-image: url('../../assets/images/hero__bg\ \(3\).jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (max-width: 800px) {
+        padding: 40px 0;
+    }
+}
+
+.contact__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    padding: 50px;
+
+    border-radius: 10px;
+    
+    /* From https://css.glass */
+    background: rgba(162, 22, 139, 0.553);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(162, 22, 138, 0.3);
+
+    @media (max-width: 700px) {
+        padding: 30px;
+        gap: 20px;
+    }
+
+    @media (max-width: 500px) {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 220px;
+        height: 60px;
+        background: palevioletred;
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+
+        border: 1px solid black;
+        border-radius: 10px;
+        outline: none;
+    }
+}
+
+.contact__inner h1 {
+    font-size: 40px;
+    text-align: center;
+
+    @media (max-width: 1200px) {
+        font-size: 30px;
+    }
+
+    @media (max-width: 700px) {
+        font-size: 25px;
+    }
+}
+
+.contact__user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    @media (max-width: 750px) {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media (max-width: 500px) {
+        gap: 15px;
+    }
+}
+
+.contact__form_box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.contact__form_box label {
+    font-size: 18px;
+    color: white;
+
+    @media (max-width: 800px) {
+        font-size: 16px;
+    }
+}
+
+.contact__form_box input {
+    width: 100%;
+    height: 50px;
+
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+
+    background: none;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 10px;
+
+    @media (max-width: 800px) {
+        font-size: 16px;
+    }
+}
+
+.contact__form_box_textarea {
+    width: 100%;
+    height: 200px;
+    font-size: 16px;
+
+    background: none;
+    outline: none;
+    padding: 15px;
+    border: 2px solid white;
+    outline: none;
+    color: white;
+}
+
+.contact__form_box_textarea::placeholder {
+    color: white;
+}
+
+.contact__form_box input::placeholder {
+    color: white;
+}

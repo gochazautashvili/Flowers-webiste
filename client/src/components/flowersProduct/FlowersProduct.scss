@@ -1,0 +1,22 @@
+.flowersProduct {
+    width: 100%;
+}
+
+.flowersProduct__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    gap: 30px;
+    margin: 70px auto;
+
+    @media (max-width: 1400px) {
+        margin-top: 50px;
+    }
+
+    @media (max-width: 620px) {
+        gap: 15px;
+    }
+}

@@ -1,0 +1,145 @@
+.blogs__desc_inner {
+    margin-top: 70px;
+
+    @media (max-width: 1400px) {
+        margin-top: 0px;
+    }
+}
+
+.blogs__desc_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    @media (max-width: 1000px) {
+        margin-bottom: 30px;
+    }
+}
+
+.blogs__desc_top h1 {
+    font-size: 40px;
+    color: palevioletred;
+
+    @media (max-width: 1700px) {
+        font-size: 35px;
+    }
+
+    @media (max-width: 1400px) {
+        font-size: 30px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 25px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 22px;
+    }
+
+    @media (max-width: 410px) {
+        font-size: 18px;
+    }
+}
+
+.blogs__desc_content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+    @media (max-width: 1000px) {
+        align-items: center;
+    }
+}
+
+.blogs__desc_left {
+    height: 700px;
+
+    @media (max-width: 1400px) {
+        height: 600px;
+    }
+
+    @media (max-width: 1000px) {
+        height: 500px;
+    }
+
+    @media (max-width: 700px) {
+        display: none;
+    }
+}
+
+.blogs__desc_left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.blogs__desc_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+
+    @media (max-width: 700px) {
+        width: 100%;
+        padding: 30px;
+        background-image: url('../../assets/images/blog__img.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.blogs__desc_right_title {
+    font-size: 48px;
+
+    @media (max-width: 1400px) {
+        font-size: 38px;
+    }
+
+    @media (max-width: 1000px) {
+        font-size: 28px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 22px;
+    }
+
+    @media (max-width: 700px) {
+        text-align: center;
+        color: white;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 10px;
+    }
+
+    @media (max-width: 650px) {
+        font-size: 18px;
+    }
+}
+
+.blogs__desc_right_text {
+    margin: 25px 0 60px;
+    font-size: 22px;
+
+    @media (max-width: 1400px) {
+        font-size: 18px;
+    }
+
+    @media (max-width: 1000px) {
+        font-size: 16px;
+        margin: 25px 0 40px;
+    }
+
+    @media (max-width: 700px) {
+        padding: 10px;
+        text-align: center;
+        color: white;
+        background: rgba(0, 0, 0, 0.4);
+        margin: 25px 0 10px;
+    }
+
+    @media (max-width: 650px) {
+        font-size: 14px;
+        margin: 15px 0 0;
+    }
+}

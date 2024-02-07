@@ -1,0 +1,174 @@
+.header {
+    background: white;
+    box-shadow: 0 0 20px 1px grey;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 0;
+}
+
+.header__logo a {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    gap: 12px;
+    padding: 4px 10px;
+    letter-spacing: 1px;
+
+    font-size: 25px;
+
+    color: black;
+
+    background: lightpink;
+    border-radius: 5px;
+    transition: background .5s;
+
+    @media (max-width: 1000px) {
+        font-size: 20px;
+    }
+
+    @media (max-width: 500px) {
+        font-size: 16px;
+    }
+}
+
+.header__logo a:hover {
+    background: palevioletred;
+}
+
+.header__logo a span {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    letter-spacing: 3px;
+}
+
+.menu {
+    @media (max-width: 1200px) {
+        display: none;
+    }
+}
+
+.menu__list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.menu__item {
+    list-style: none;
+}
+
+.menu__link {
+    text-decoration: none;
+    position: relative;
+    font-family: "Roboto", sans-serif;
+
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: black;
+
+    @media (max-width: 1700px) {
+        font-size: 16px;
+    }
+}
+
+.menu__link.active {
+    color: red;
+}
+
+.menu__link::after {
+    content: '';
+    position: absolute;
+
+    bottom: -5px;
+    left: 0;
+
+    width: 0%;
+    height: 3px;
+
+    background: green;
+    transition: width .5s;
+}
+
+.menu__link::before {
+    content: '';
+    position: absolute;
+
+    top: -5px;
+    right: 0;
+
+    width: 0%;
+    height: 3px;
+
+    background: green;
+    transition: width .5s;
+}
+
+.menu__link:hover::after,
+.menu__link:hover::before {
+    width: 100%;
+}
+
+// header right side
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @media (max-width: 1200px) {
+        display: none;
+    }
+}
+
+.header__right img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.header__right_box {
+    position: relative;
+    cursor: pointer;
+}
+
+.header__right_box span {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 23px;
+    height: 23px;
+
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+
+    background: pink;
+    border-radius: 90px;
+}
+
+// burger menu
+
+.header__burger_menu {
+    display: none;
+
+    @media (max-width: 1200px) {
+        display: flex;
+    }
+}
+
+.header__burger_menu img {
+    width: 32px;
+    cursor: pointer;
+}

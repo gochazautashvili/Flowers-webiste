@@ -1,0 +1,15 @@
+.flowerHero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 120px 0 170px;
+
+    background-image: url("../../assets/images/hero__bg\ \(3\).jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
