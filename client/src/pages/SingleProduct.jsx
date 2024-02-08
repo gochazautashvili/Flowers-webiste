@@ -6,6 +6,7 @@ import { ColorRing } from 'react-loader-spinner'
 import useCart from '../hooks/useCart'
 import useWishlist from '../hooks/useWishlist'
 import API from '../api/api'
+import CreateLoader from '../components/loaders/CreateLoader'
 
 function SingleProduct() {
     const { id } = useParams()
@@ -16,6 +17,9 @@ function SingleProduct() {
     const { addCart } = useCart()
     const { addToWishlist, wishlist, removeWishlist } = useWishlist()
     const wishlistDisable = wishlist.filter(item => item.productID == id)
+
+    const [loadingWish, setLoadingWish] = useState(false)
+    const [loadingCart, setLoadingCart] = useState(false)
 
     useEffect(() => {
         setLoading(true)
@@ -56,9 +60,11 @@ function SingleProduct() {
 
     const addToCart = (flowerProp) => {
         if (quantity > 0) {
+            setLoadingCart(true)
             axios.post(`${API}/cart`, { flowerProp, cartUserID: user.userID, productID: flower._id, quantity }, {
                 headers: { 'Authorization': `Bearer ${user?.token}` }
             }).then((res) => {
+                setLoadingCart(false)
                 addCart(res.data, quantity)
             }).catch((err) => {
                 console.log(err);
@@ -67,9 +73,11 @@ function SingleProduct() {
     }
 
     const addWishlist = (flowerProp) => {
+        setLoadingWish(true)
         axios.post(`${API}/wishlist`, { flowerProp, cartUserID: user.userID, productID: flower._id }, {
             headers: { 'Authorization': `Bearer ${user?.token}` }
         }).then((res) => {
+            setLoadingWish(false)
             if (wishlistDisable.length > 0) {
                 removeWishlist(id)
             } else {
@@ -111,8 +119,8 @@ function SingleProduct() {
                                 <button onClick={increment}>+</button>
                             </div>
                             <div className="single__right_bottom">
-                                <button onClick={() => addWishlist(flower)} className='wishlist'>{wishlistDisable.length > 0 ? "Remove Wishlist" : "Add WishList"}</button>
-                                <button onClick={() => addToCart(flower)} className='add_cart'>ADD TO CART</button>
+                                <button onClick={() => addWishlist(flower)} className='wishlist'>{loadingWish ? <CreateLoader /> : wishlistDisable.length > 0 ? "Remove Wishlist" : "Add WishList"}</button>
+                                <button onClick={() => addToCart(flower)} className='add_cart'>{loadingCart ? <CreateLoader /> : "ADD TO CART"}</button>
                             </div></>}
                     </div>
                 </div>}

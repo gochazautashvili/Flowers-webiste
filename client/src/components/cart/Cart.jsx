@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Cart.scss'
 import Cart_exit from '../../assets/icons/exitMenu__icon.png'
 import useCart from '../../hooks/useCart'
@@ -6,16 +6,21 @@ import axios from 'axios'
 import useAuth from '../../hooks/useAuth'
 import CartItem from '../cartItem/CartItem'
 import API from '../../api/api'
+import CreateLoader from '../loaders/CreateLoader.jsx'
 
 function Cart({ handleCart }) {
     const { cart, deleteFromCart } = useCart()
     const { user } = useAuth()
+    const [loading, setLoading] = useState(false)
+    const [deleting, setDeleting] = useState(false)
 
     const handleDeleteCart = (_id) => {
+        setDeleting(true)
         axios.post(`${API}/cart/delete`, { _id }, {
             headers: { 'Authorization': `Bearer ${user?.token}` }
         })
             .then((res) => {
+                setDeleting(false)
                 deleteFromCart(res.data._id)
             })
             .catch(err => {
@@ -24,6 +29,7 @@ function Cart({ handleCart }) {
     }
 
     const handlePayment = () => {
+        setLoading(true)
         fetch(`${API}/cart/create-checkout-session`, {
             method: "POST",
             headers: {
@@ -34,6 +40,7 @@ function Cart({ handleCart }) {
                 items: cart
             })
         }).then(res => {
+            setLoading(false)
             if (res.ok) return res.json()
             return res.json().then(json => Promise.reject(json))
         }).then(({ url }) => {
@@ -52,10 +59,10 @@ function Cart({ handleCart }) {
                 </div>
                 <div className="cart__product">
                     {cart?.map(item => (
-                        <CartItem key={item?._id} item={item} handleDeleteCart={handleDeleteCart} />
+                        <CartItem deleting={deleting} key={item?._id} item={item} handleDeleteCart={handleDeleteCart} />
                     ))}
                 </div>
-                <button onClick={handlePayment} className="cart__checkout">შეძენა</button>
+                <button onClick={handlePayment} className="cart__checkout">{loading ? <CreateLoader /> : "შეძენა"}</button>
             </div>
         </section>
     )

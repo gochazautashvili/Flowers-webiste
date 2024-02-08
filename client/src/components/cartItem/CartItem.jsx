@@ -1,8 +1,9 @@
 import React from 'react'
 import '../cart/Cart.scss'
 import { Link } from 'react-router-dom'
+import CreateLoader from '../loaders/CreateLoader.jsx'
 
-function CartItem({ item, handleDeleteCart }) {
+function CartItem({ item, handleDeleteCart, deleting }) {
     return (
         <div className="cart__product_box">
             <Link to={`/single-product/${item.productID}`} className="cart__product_box_left">
@@ -15,7 +16,7 @@ function CartItem({ item, handleDeleteCart }) {
                     <p>ფასი: <span>{item?.new_price} $</span></p>
                 </div>
             </Link>
-            <button className='cart__product_box_button' onClick={() => handleDeleteCart(item._id)}>ამოშლა</button>
+            <button className='cart__product_box_button' onClick={() => handleDeleteCart(item._id)}>{deleting ? <CreateLoader /> : "ამოშლა"}</button>
         </div>
     )
 }
