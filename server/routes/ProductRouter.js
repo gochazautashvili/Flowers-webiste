@@ -26,7 +26,7 @@ const router = express.Router()
 //     storage: storage
 // })
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: '/tmp' });
 
 
 router.post('/', auth, upload.single('image'), async (req, res) => {

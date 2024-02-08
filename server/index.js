@@ -10,12 +10,12 @@ import WishlistRouter from './routes/WishlistRouter.js'
 dotenv.config()
 
 const app = express()
-const corsOptions = {
-    origin: '*',
-};
+// const corsOptions = {
+//     origin: '*',
+// };
 
-app.use(cors(corsOptions))
-app.use(express.static("public"))
+app.use(cors())
+// app.use(express.static("public"))
 app.use(express.json())
 
 const PORT = process.env.PORT || 8000
