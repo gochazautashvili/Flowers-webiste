@@ -33,8 +33,8 @@ function SingleProduct() {
 
     const formattedPrice = useMemo(() => {
         if (flower) {
-            const newPrice = `New: ${flower.new_price} $`;
-            const oldPrice = flower.old_price ? `Old: ${flower.old_price} $` : '';
+            const newPrice = `New: ${flower.new_price} 	₾`;
+            const oldPrice = flower.old_price ? `Old: ${flower.old_price} ₾` : '';
             return [newPrice, oldPrice].filter(Boolean).join(' ');
         }
         return '';
@@ -93,7 +93,7 @@ function SingleProduct() {
                     colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
                 /> : <div className="single__inner">
                     <div className="single__left">
-                        <img src={`http://localhost:8000/images/${flower?.mainImg}`} alt="" />
+                        <img src={flower?.mainImg} alt="" />
                     </div>
                     <div className="single__right">
                         <div className="single__right_top">

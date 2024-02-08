@@ -18,7 +18,7 @@ function Wishlist({ handleWishlist }) {
           {wishlist.map(item => (
             <Link to={`/single-product/${item.productID}`} key={item._id} className="wishlist__product_box">
               <div className="wishlist__product_box_left">
-                <img src={`http://localhost:8000/images/${item.mainImg}`} alt="" />
+                <img src={item.mainImg} alt="" />
                 <div className="wishlist__product_box_desc">
                   <h1>სახელი: <span>{item.title}</span></h1>
                   <p>ფასი: <span>{item.new_price} $</span></p>

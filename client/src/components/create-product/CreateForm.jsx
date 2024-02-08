@@ -5,6 +5,7 @@ import useAuth from '../../hooks/useAuth.js'
 import axios from 'axios'
 import API from '../../api/api.js'
 import { useNavigate } from 'react-router-dom'
+import CreateLoader from '../loaders/CreateLoader.jsx'
 
 function CreateForm() {
     const [searchWordValue, setSearchWordValue] = useState('')
@@ -16,6 +17,8 @@ function CreateForm() {
     const [new_price, setNewPrice] = useState('')
     const [old_price, setOldPrice] = useState('')
     const [error, setError] = useState("")
+    const [images, setImages] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const { user } = useAuth()
     const searchRef = useRef()
@@ -35,12 +38,13 @@ function CreateForm() {
     const handleMainImg = async (e) => {
         const file = e.target.files[0]
 
-        setMainImg(file);
+        setImages(file);
     }
 
     const handleSubmit = (e) => {
-        // e.preventDefault()
+        setLoading(true)
         const formData = new FormData()
+        formData.append('image', images);
         formData.append('file', mainImg)
         formData.append('title', title)
         formData.append('category', categoryValue)
@@ -51,6 +55,7 @@ function CreateForm() {
 
         axios.post(`${API}/product`, formData, { headers: { 'Authorization': `Bearer ${user?.token}` } })
             .then((res) => {
+                setLoading(false)
                 navigate('/flowers')
                 window.location.reload()
             })
@@ -58,6 +63,16 @@ function CreateForm() {
                 setError(err?.response?.data);
             })
     }
+
+    const postImages = (file) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onloadend = () => {
+            setImages(reader.result)
+        }
+    }
+
+    console.log(images);
 
     const handleCategoryValue = (e) => {
         setCategoryValue(e.target.innerHTML)
@@ -109,7 +124,7 @@ function CreateForm() {
                             <input name='mainImg' onChange={handleMainImg} type='file' />
                         </div>
                     </div>
-                    <button className='create__submit_button' type='button' onClick={handleSubmit}>პროდუკტის შექმნა</button>
+                    <button className='create__submit_button' type='button' onClick={handleSubmit}>{loading ? <CreateLoader /> : "პროდუკტის შექმნა"}</button>
                     {error && <p className='error'>{error}</p>}
                 </form>
             </div>

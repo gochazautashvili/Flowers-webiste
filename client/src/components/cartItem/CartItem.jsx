@@ -7,7 +7,7 @@ function CartItem({ item, handleDeleteCart }) {
         <div className="cart__product_box">
             <Link to={`/single-product/${item.productID}`} className="cart__product_box_left">
                 <div className="cart__product_box_left_img">
-                    <img src={`http://localhost:8000/images/${item.mainImg}`} alt="" />
+                    <img src={item.mainImg} alt="" />
                     <h1>{item.quantity}</h1>
                 </div>
                 <div className="cart__product_box_desc">

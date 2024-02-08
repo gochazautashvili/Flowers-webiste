@@ -16,10 +16,10 @@ router.post('/create-checkout-session', auth, async (req, res) => {
 
             return {
                 price_data: {
-                    currency: 'usd',
+                    currency: 'gel',
                     product_data: {
                         name: storageItem.title,
-                        images: [`http://localhost:8000/images/${storageItem.mainImg}`],
+                        images: [storageItem.mainImg],
                     },
                     unit_amount: storageItem.new_price * 100,
                 },

@@ -13,9 +13,9 @@ function Product({ title, price, main_image, id }) {
         <section className='product' onClick={handleSinglePage}>
             <div className="product__top">
                 <p>{title}</p>
-                <p>{price} $</p>
+                <p>₾ {price}</p>
             </div>
-            <img src={`http://localhost:8000/images/${main_image}`} alt="" />
+            <img src={main_image} alt="" />
             <div className="product__bottom">
                 <button>ნახვა</button>
                 <button>შეძენა</button>

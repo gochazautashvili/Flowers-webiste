@@ -5,9 +5,9 @@ const ProductSchema = new mongoose.Schema({
     title: { type: String, required: true },
     new_price: { type: String, required: true },
     old_price: { type: String },
-    category: { type: Array, required: true },
+    category: { type: [String], required: true },
     searchWords: { type: [String], required: true, default: ["ყვავილი", "ყვავილები"] },
-    mainImg: { type: String, required: true },
+    mainImg: { type: String },
 })
 
 export default mongoose.model("Products", ProductSchema)

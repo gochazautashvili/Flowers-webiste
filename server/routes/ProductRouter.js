@@ -3,31 +3,51 @@ import ProductModules from '../models/ProductModules.js'
 import multer from 'multer'
 import path from 'path'
 import auth from '../middleware/auth.js'
+import { v2 as cloudinary } from 'cloudinary';
+
+cloudinary.config({
+    cloud_name: 'dxesljzkl',
+    api_key: '728676652369458',
+    api_secret: 'zTfM2n1vKfQV0OvAmeRB7hz4YEs'
+});
 
 const router = express.Router()
 
-const storage = multer.diskStorage({
-    destination: (req, file, cd) => {
-        cd(null, 'public/images')
-    },
-    filename: (req, file, cd) => {
-        cd(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname))
-    }
-})
+// const storage = multer.diskStorage({
+//     destination: (req, file, cd) => {
+//         cd(null, 'public/images')
+//     },
+//     filename: (req, file, cd) => {
+//         cd(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname))
+//     }
+// })
 
-const upload = multer({
-    storage: storage
-})
+// const upload = multer({
+//     storage: storage
+// })
 
-router.post('/', auth, upload.single('file'), async (req, res) => {
+const upload = multer({ dest: 'uploads/' });
+
+
+router.post('/', auth, upload.single('image'), async (req, res) => {
 
     const { title, category, searchWords, new_price, old_price, userID } = req.body
 
     try {
-        if (!title || !category || !new_price || !req.file || !userID) {
+
+        // cloudinery
+
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: "images",
+            // width: 300,
+            // crop: "scale"
+        })
+
+        // my code
+        if (!title || !category || !new_price || !userID || !result) {
             res.status(400).json("სახელი კატეგორია ფასი და სურათი აუცილებელია & {ასევე რეგისტრაციააა საჭირო}")
         } else {
-            const CreateProduct = new ProductModules({ mainImg: req.file.filename, title, new_price, old_price, category, searchWords: searchWords.split(','), userID })
+            const CreateProduct = new ProductModules({ mainImg: result.secure_url, title, new_price, old_price, category, searchWords: searchWords.split(','), userID })
             await CreateProduct.save()
             res.status(201).json("პროდუცტი შეიქმნა")
         }

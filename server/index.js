@@ -10,8 +10,11 @@ import WishlistRouter from './routes/WishlistRouter.js'
 dotenv.config()
 
 const app = express()
+const corsOptions = {
+    origin: '*',
+};
 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.static("public"))
 app.use(express.json())
 
