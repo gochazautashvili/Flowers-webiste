@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './FlowersFilter.scss'
 import Dropdown__icon from '../../assets/icons/dropdown__icon.png'
-import Search__icon from '../../assets/icons/Search__icon.png'
+import Search__icon from '../../assets/icons/search__icon.png'
 import { useMediaQuery } from 'react-responsive'
 import axios from 'axios'
 import FlowersProduct from '../flowersProduct/FlowersProduct'
