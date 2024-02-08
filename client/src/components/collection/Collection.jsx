@@ -37,7 +37,6 @@ function Collection() {
             <Swiper
               slidesPerView={5}
               spaceBetween={20}
-              freeMode={true}
               breakpoints={{
                 100: {
                   slidesPerView: 1,
@@ -60,7 +59,7 @@ function Collection() {
                 delay: 2000,
                 disableOnInteraction: false,
               }}
-              modules={[FreeMode, Autoplay, Pagination]}
+              modules={[Autoplay, Pagination]}
               className="mySwiper"
             >
               {loading ? <ColorRing

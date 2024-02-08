@@ -45,6 +45,15 @@
         color: white;
         flex-grow: 1;
         text-align: center;
+
+
+        @media (max-width: 800px) {
+            font-size: 28px;
+        }
+
+        @media (max-width: 450px) {
+            font-size: 18px;
+        }
     }
 
     img {
