@@ -33,8 +33,8 @@ router.post('/create-checkout-session', auth, async (req, res) => {
             payment_method_types: ['card'],
             mode: 'payment',
             line_items: lineItems,
-            success_url: "http://localhost:5173/",
-            cancel_url: "http://localhost:5173/flowers",
+            success_url: "https://flowers-website-s.vercel.app/flowers",
+            cancel_url: "https://flowers-website-s.vercel.app/flowers",
         });
 
         req.body.items.map(async item => {
