@@ -72,8 +72,6 @@ function CreateForm() {
         }
     }
 
-    console.log(images);
-
     const handleCategoryValue = (e) => {
         setCategoryValue(e.target.innerHTML)
         setShowCategory(false)

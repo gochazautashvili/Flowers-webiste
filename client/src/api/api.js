@@ -1,3 +1,3 @@
-const API = 'https://flowers-webiste.vercel.app'
+const API = 'http://localhost:8000'
 
 export default API

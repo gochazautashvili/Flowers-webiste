@@ -39,7 +39,6 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
 
         const result = await cloudinary.uploader.upload(req.file.path, {
             folder: "images",
-            // width: 300,
             // crop: "scale"
         })
 
@@ -47,7 +46,7 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
         if (!title || !category || !new_price || !userID || !result) {
             res.status(400).json("სახელი კატეგორია ფასი და სურათი აუცილებელია & {ასევე რეგისტრაციააა საჭირო}")
         } else {
-            const CreateProduct = new ProductModules({ mainImg: result.secure_url, title, new_price, old_price, category, searchWords: searchWords.split(','), userID })
+            const CreateProduct = new ProductModules({ mainImg: result.public_id, title, new_price, old_price, category, searchWords: searchWords.split(','), userID })
             await CreateProduct.save()
             res.status(201).json("პროდუცტი შეიქმნა")
         }

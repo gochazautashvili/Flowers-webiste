@@ -1,6 +1,7 @@
 import React from 'react'
 import useAuth from '../hooks/useAuth'
 import { Link } from 'react-router-dom'
+import './Pages.scss'
 import LogoutButton from '../components/logout-button/LogoutButton'
 
 function Profile() {
