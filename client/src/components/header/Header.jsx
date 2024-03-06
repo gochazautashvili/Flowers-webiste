@@ -109,15 +109,29 @@ function Header() {
                 loading="lazy"
                 onClick={() => navigate("/profile")}
                 src={Profile__icon}
-                alt=""
+                alt="profile"
+                width="25"
+                height="25"
               />
             </div>
             <div className="header__right_box" onClick={handleWishlist}>
-              <img loading="lazy" src={Wishlist__icon} alt="" />
+              <img
+                loading="lazy"
+                src={Wishlist__icon}
+                alt="wishlist"
+                width="25"
+                height="25"
+              />
               <span>{wishlistLength.length}</span>
             </div>
             <div className="header__right_box" onClick={handleCart}>
-              <img loading="lazy" src={Cart__icon} alt="" />
+              <img
+                loading="lazy"
+                src={Cart__icon}
+                alt="cart"
+                width="25"
+                height="25"
+              />
               <span>{getTotalItemsInCart()}</span>
             </div>
           </div>
@@ -127,7 +141,9 @@ function Header() {
               className="burger"
               onClick={handleMenu}
               src={BurgerMenu__icon}
-              alt=""
+              alt="menu"
+              width="32"
+              height="25"
             />
           </div>
         </div>

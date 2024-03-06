@@ -11,6 +11,8 @@ const cld = new Cloudinary({
 function Image({ mainImg, title, width, height }) {
   return (
     <img
+      width={width}
+      height={height}
       loading="lazy"
       src={cld
         .image(mainImg)
