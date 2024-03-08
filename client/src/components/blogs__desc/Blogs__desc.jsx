@@ -1,6 +1,6 @@
 import React from "react";
 import "./Blogs__desc.scss";
-import Blogs__desc_img from "../../assets/images/blog__img.jpg";
+import Blogs__desc_img from "../../assets/images/blog__img.webp";
 import Button from "../button/Button";
 
 function Blogs__desc() {

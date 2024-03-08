@@ -1,5 +1,5 @@
 import React from "react";
-import About__desc_img from "../../assets/images/about__img.jpg";
+import About__desc_img from "../../assets/images/about__img.webp";
 import Button from "../button/Button";
 import "./About__desc.scss";
 import { About__text } from "../../product/text";

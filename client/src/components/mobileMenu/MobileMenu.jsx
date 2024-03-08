@@ -1,8 +1,8 @@
 import React from "react";
 import "./MobileMenu.scss";
 import { NavLink, useNavigate } from "react-router-dom";
-import Cart__icon from "../../assets/icons/shopping__cart.png";
-import Profile__icon from "../../assets/icons/profile.png";
+import Cart__icon from "../../assets/icons/shopping__cart.webp";
+import Profile__icon from "../../assets/icons/profile.webp";
 import Wishlist__icon from "../../assets/icons/wishlist.png";
 import useAuth from "../../hooks/useAuth";
 import LogoutButton from "../logout-button/LogoutButton";
