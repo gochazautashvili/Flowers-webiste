@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { lazy, useState, Suspense } from "react";
 import "./Header.scss";
 import { NavLink, useNavigate } from "react-router-dom";
 import Cart__icon from "../../assets/icons/shopping__cart.webp";
 import Profile__icon from "../../assets/icons/profile.webp";
 import Wishlist__icon from "../../assets/icons/wishlist.png";
 import BurgerMenu__icon from "../../assets/icons/burgerMenu__icon.png";
-import MobileMenu from "../mobileMenu/MobileMenu";
-import Cart from "../cart/Cart";
-import Wishlist from "../wishlist/Wishlist";
 import useWishlist from "../../hooks/useWishlist";
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
+const MobileMenu = lazy(() => import("../mobileMenu/MobileMenu"));
+const Wishlist = lazy(() => import("../wishlist/Wishlist"));
+const Cart = lazy(() => import("../cart/Cart"));
 
 function Header() {
   const navigate = useNavigate();
@@ -149,10 +149,20 @@ function Header() {
         </div>
       </div>
       {mobileMenu && (
-        <MobileMenu handleCart={handleCart} handleWishlist={handleWishlist} />
+        <Suspense fallback="loading...">
+          <MobileMenu handleCart={handleCart} handleWishlist={handleWishlist} />
+        </Suspense>
       )}
-      {cart && <Cart handleCart={handleCart} />}
-      {wishlist && <Wishlist handleWishlist={handleWishlist} />}
+      {cart && (
+        <Suspense fallback="loading...">
+          <Cart handleCart={handleCart} />
+        </Suspense>
+      )}
+      {wishlist && (
+        <Suspense fallback="loading...">
+          <Wishlist handleWishlist={handleWishlist} />
+        </Suspense>
+      )}
     </header>
   );
 }

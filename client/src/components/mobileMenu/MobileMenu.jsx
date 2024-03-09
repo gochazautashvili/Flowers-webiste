@@ -8,7 +8,6 @@ import useAuth from "../../hooks/useAuth";
 import LogoutButton from "../logout-button/LogoutButton";
 import useWishlist from "../../hooks/useWishlist";
 import useCart from "../../hooks/useCart";
-
 function MobileMenu({ handleCart, handleWishlist }) {
   const navigate = useNavigate();
   const { wishlist: wishlistLength } = useWishlist();
