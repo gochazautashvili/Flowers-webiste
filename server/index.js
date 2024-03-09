@@ -6,17 +6,14 @@ import userRouter from './routes/userRouter.js'
 import ProductRouter from './routes/ProductRouter.js'
 import CartRouter from './routes/CartRouter.js'
 import WishlistRouter from './routes/WishlistRouter.js'
+import compression from "compression";
 
 dotenv.config()
 
 const app = express()
-// const corsOptions = {
-//     origin: '*',
-// };
-
 app.use(cors())
-// app.use(express.static("public"))
 app.use(express.json())
+app.use(compression())
 
 const PORT = process.env.PORT || 8000
 
